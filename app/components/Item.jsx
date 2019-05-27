@@ -4,25 +4,18 @@ const {connect} = require('react-redux');
 
 const actions = require('actions');
 
-const Item = require('Item');
-
-class Results extends React.Component {
+class Item extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
-        // need to store in variable
-
-        const renderList = () => {
-            const list = this.props.list;
-
-
-        }
         
         return (
             <div>
-                {renderList()}
+                <div>
+                    {this.props.name}
+                </div>
             </div>
         )
     }
@@ -34,7 +27,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {};
 
-const Container = connect(mapStateToProps)(Results);
+const Container = connect(mapStateToProps)(Item);
 //, mapDispatchToProps
 
 
