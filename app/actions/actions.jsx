@@ -46,10 +46,18 @@
 
 
 const ADD = 'ADD';
+const STORE = 'STORE';
 
 export const addInput = (input) => {
   return {
     type: ADD,
     input: input
+  }
+};
+
+export const storeList = (data) => {
+  return {
+    type: STORE,
+    list: data
   }
 };

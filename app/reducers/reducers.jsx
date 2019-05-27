@@ -24,3 +24,12 @@ export const inputReducer = (state = {input: ''}, action) => {
             return state;
     }
 }
+
+export const listReducer = (state = [], action) => {
+    switch(action.type) {
+        case 'STORE':
+            return action.list;
+        default:
+            return state;
+    }
+};

@@ -14,4 +14,11 @@ class Results extends React.Component {
     }
 }
 
-module.exports = Results;
+const mapStateToProps = (state) => {
+    return state.listReducer;
+};
+
+const Container = connect(mapStateToProps, mapDispatchToProps)(Results);
+
+
+module.exports = Container;

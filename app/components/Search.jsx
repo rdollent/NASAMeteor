@@ -25,7 +25,7 @@ class Search extends React.Component {
             })
             .then(res => res.json())
             .then((data) => {
-                console.log(data);
+                this.props.storeList(data);
             })
             .catch(err => {
                 throw new Error(err);
@@ -53,6 +53,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         submitNewInput: (input) => {
             dispatch(actions.addInput(input))
+        },
+        storeList: (data) => {
+            dispatch(actions.storeList(data))
         }
     }
 };
