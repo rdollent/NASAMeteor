@@ -19,16 +19,25 @@ export const inputReducer = (state = {input: ''}, action) => {
             return {
                 ...state,
                 input: action.input
-            }
+            };
         default:
             return state;
     }
-}
+};
 
 export const listReducer = (state = [], action) => {
     switch(action.type) {
         case 'STORE':
             return action.list;
+        default:
+            return state;
+    }
+};
+
+export const pageReducer = (state = 0, action) => {
+    switch(action.type) {
+        case 'PAGE':
+            return action.num;
         default:
             return state;
     }

@@ -25,7 +25,9 @@ class Search extends React.Component {
             })
             .then(res => res.json())
             .then((data) => {
+                this.props.setPage(1);
                 this.props.storeList(data);
+                
             })
             .catch(err => {
                 throw new Error(err);
@@ -41,7 +43,7 @@ class Search extends React.Component {
                 </form>
                 
             </div>
-        )
+        );
     }
 }
 
@@ -52,12 +54,15 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         submitNewInput: (input) => {
-            dispatch(actions.addInput(input))
+            dispatch(actions.addInput(input));
         },
         storeList: (data) => {
-            dispatch(actions.storeList(data))
+            dispatch(actions.storeList(data));
+        },
+        setPage: (num) => {
+            dispatch(actions.setPage(num));
         }
-    }
+    };
 };
   
 

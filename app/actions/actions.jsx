@@ -47,17 +47,25 @@
 
 const ADD = 'ADD';
 const STORE = 'STORE';
+const PAGE = 'PAGE';
 
 export const addInput = (input) => {
   return {
     type: ADD,
     input: input
-  }
+  };
 };
 
 export const storeList = (data) => {
   return {
     type: STORE,
     list: data
-  }
+  };
+};
+
+export const setPage = (num) => {
+  return {
+    type: PAGE,
+    num: num
+  };
 };

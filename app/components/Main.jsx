@@ -2,6 +2,8 @@ const React = require('react');
 
 const Search = require('Search');
 const Results = require('Results');
+const Page = require('Page');
+
 
 class Main extends React.Component {
     constructor(props) {
@@ -13,8 +15,9 @@ class Main extends React.Component {
             <div id='main'>
                 <Search/>
                 <Results/>
+                <Page/>
             </div>
-        )
+        );
     }
 }
 

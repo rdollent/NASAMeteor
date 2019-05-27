@@ -16,20 +16,40 @@ class Results extends React.Component {
 
         const renderList = () => {
             const list = this.props.list;
-
-
-        }
+            const num = this.props.page;
+            
+            if(list && list.length) {
+                // get first 50 for first page
+                // read what results page it is
+                
+                const x = 50;
+                const max = (num * x) - 1;
+                const min = (num * x) - x;
+                const arr = [];
+                for(let i = min; i <= max; i++) {
+                    let itemNow = list[i];
+                    arr.push(
+                        <Item name={itemNow.name}/>
+                        );
+                }
+                return arr;
+                
+            }
+            
+            
+            
+        };
         
         return (
             <div>
                 {renderList()}
             </div>
-        )
+        );
     }
 }
 
 const mapStateToProps = (state) => {
-    return {list} = state;
+    return {list, page} = state;
 };
 
 const mapDispatchToProps = {};
