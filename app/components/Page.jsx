@@ -73,7 +73,7 @@ class Page extends React.Component {
             }
         };
         return (
-            <div>
+            <div id='page'>
                 {renderPage()}
             </div>
         );
