@@ -21,30 +21,15 @@ class Results extends React.Component {
             if(list && list.length) {
                 // get first 50 for first page
                 // read what results page it is
-                let x, min, max;
-                const arr = [];
-                if(list.length === 1000) {
-                    x = 50;
-                    min = (num * x) - x;
-                    max = (num * x) - 1;
-                } else {
-                    min = 0;
-                    max = list.length - 1;
-                }
                 
+                const x = 50;
+                const max = (num * x) - 1;
+                const min = (num * x) - x;
+                const arr = [];
                 for(let i = min; i <= max; i++) {
                     let itemNow = list[i];
-                    // id, name, mass, recclass, recclat, reclong, year
                     arr.push(
-                        <Item 
-                            name={itemNow.name}
-                            id={itemNow.id}
-                            mass={itemNow.mass}
-                            class={itemNow.recclass}
-                            lat={itemNow.reclat}
-                            long={itemNow.reclong}
-                            year={itemNow.year}
-                        />
+                        <Item name={itemNow.name}/>
                         );
                 }
                 return arr;
@@ -57,7 +42,7 @@ class Results extends React.Component {
         
         return (
             <div>
-                <table>
+            <table>
                     <tr>
                         <th>Name</th>
                         <th>Id</th>
@@ -67,7 +52,7 @@ class Results extends React.Component {
                         <th>Longitude</th>
                         <th>Year</th>
                     </tr>
-                    {renderList()}
+                {renderList()}
                 </table>
             </div>
         );

@@ -25,7 +25,8 @@ class Page extends React.Component {
         
         const renderPrev = () => {
             const num = this.props.page;
-            if(num > 1) {
+            const list = this.props.list;
+            if(num > 1 && list && list.length > 50) {
                 return (
                     <button onClick={this.prevPage}> Prev </button>
                     );
@@ -39,7 +40,8 @@ class Page extends React.Component {
         
         const renderNext = () => {
             const num = this.props.page;
-            if(num < 20) {
+            const list = this.props.list;
+            if(num < 20 && list && list.length > 50) {
                 return (
                     <button onClick={this.nextPage}> Next </button>
                     );

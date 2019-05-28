@@ -48,6 +48,7 @@
 const ADD = 'ADD';
 const STORE = 'STORE';
 const PAGE = 'PAGE';
+const NO_ENTRIES = 'NO_ENTRIES';
 
 export const addInput = (input) => {
   return {
@@ -67,5 +68,12 @@ export const setPage = (num) => {
   return {
     type: PAGE,
     num: num
+  };
+};
+
+export const setError = (str) => {
+  return {
+    type: NO_ENTRIES,
+    err: str
   };
 };

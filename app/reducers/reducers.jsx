@@ -42,3 +42,12 @@ export const pageReducer = (state = 0, action) => {
             return state;
     }
 };
+
+export const errorReducer = (state = '', action) => {
+    switch(action.type) {
+        case 'NO_ENTRIES':
+            return action.err;
+        default:
+            return state;
+    }
+};

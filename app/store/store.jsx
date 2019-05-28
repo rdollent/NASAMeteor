@@ -6,7 +6,7 @@ const thunk = require('redux-thunk').default;
 // const {/* insert reducers here */} = require('./../reducers/index');
 
 
-const {inputReducer, listReducer, pageReducer} = require('reducers');
+const {inputReducer, listReducer, pageReducer, errorReducer} = require('reducers');
 // export a function that returns store variable
 export const createStore = () => {
         
@@ -21,7 +21,8 @@ export const createStore = () => {
         // map: mapReducer
         input: inputReducer,
         list: listReducer,
-        page: pageReducer
+        page: pageReducer,
+        err: errorReducer
     });
     
     // 2nd argument lets you configure which store you wanna use

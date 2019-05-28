@@ -14,7 +14,7 @@ class Search extends React.Component {
     }
     
     handleInput(event) {
-        this.props.submitNewInput(event.target.value);
+        this.props.submitNewInput((event.target.value).toLowerCase());
     }
 
     initialLoad() {
@@ -39,15 +39,21 @@ class Search extends React.Component {
 
     submitInput(e) {
         e.preventDefault();
-        console.log(this.myText.value);
+        const textQuery = (this.myText.value).toLowerCase();
+        
         // fetch
-        fetch('https://data.nasa.gov/resource/gh4g-9sfh.json?$q=' + this.myText.value, {
+        fetch('https://data.nasa.gov/resource/gh4g-9sfh.json?$q=' + textQuery, {
             method: 'GET'
             })
             .then(res => res.json())
             .then((data) => {
-                this.props.setPage(1);
-                this.props.storeList(data);
+                if(data && data.length) {
+                    this.props.setPage(1);
+                    this.props.storeList(data);
+                } else {
+                    this.props.setError('No entries!')
+                }
+                
                 
             })
             .catch(err => {
@@ -62,6 +68,7 @@ class Search extends React.Component {
                     <input type="text" name="search" id="searchBar" ref={ref => this.myText = ref} onChange={this.handleInput}/>
                     <button>Submit</button>
                 </form>
+                <button onClick={this.initialLoad}>Home</button>
                 
             </div>
         );
@@ -82,6 +89,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         setPage: (num) => {
             dispatch(actions.setPage(num));
+        },
+        setError: (str) => {
+            dispatch(actions.setError(str));
         }
     };
 };
