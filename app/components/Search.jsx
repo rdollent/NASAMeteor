@@ -41,7 +41,6 @@ class Search extends React.Component {
         e.preventDefault();
         const textQuery = (this.myText.value).toLowerCase();
         const url = "https://data.nasa.gov/resource/gh4g-9sfh.json?$where=lower(name)=" + "'" + textQuery + "'";
-        console.log(url);
         // fetch
         fetch(url, {
             method: 'GET'
