@@ -3,6 +3,7 @@ const React = require('react');
 const Search = require('Search');
 const Results = require('Results');
 const Page = require('Page');
+// const Err = require('Error');
 
 
 class Main extends React.Component {
