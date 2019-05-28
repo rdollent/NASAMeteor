@@ -28,8 +28,17 @@ class Results extends React.Component {
                 const arr = [];
                 for(let i = min; i <= max; i++) {
                     let itemNow = list[i];
+                    // id, name, mass, recclass, recclat, reclong, year
                     arr.push(
-                        <Item name={itemNow.name}/>
+                        <Item 
+                            name={itemNow.name}
+                            id={itemNow.id}
+                            mass={itemNow.mass}
+                            class={itemNow.recclass}
+                            lat={itemNow.reclat}
+                            long={itemNow.reclong}
+                            year={itemNow.year}
+                        />
                         );
                 }
                 return arr;
@@ -42,7 +51,18 @@ class Results extends React.Component {
         
         return (
             <div>
-                {renderList()}
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Id</th>
+                        <th>Mass</th>
+                        <th>Class</th>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                        <th>Year</th>
+                    </tr>
+                    {renderList()}
+                </table>
             </div>
         );
     }

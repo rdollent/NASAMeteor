@@ -10,13 +10,18 @@ class Item extends React.Component {
     }
 
     render() {
-        
+        const fullDate = new Date(this.props.year);
+        const year = fullDate.getFullYear();
         return (
-            <div>
-                <div>
-                    {this.props.name}
-                </div>
-            </div>
+                <tr>
+                    <td>{this.props.name}</td>
+                    <td>{this.props.id}</td>
+                    <td>{this.props.mass}</td>
+                    <td>{this.props.class}</td>
+                    <td>{this.props.lat}</td>
+                    <td>{this.props.long}</td>
+                    <td>{year}</td>
+                </tr>
         )
     }
 }
