@@ -59,9 +59,9 @@ class Page extends React.Component {
                 return (
                     <div>
                         {renderPrev()}
-                        <p>
+                        <span>
                         {this.props.page}
-                        </p>
+                        </span>
                         {renderNext()}
                     </div>
                     

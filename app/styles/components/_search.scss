@@ -1,0 +1,46 @@
+#search {
+    display: grid;
+    justify-content: center;
+    grid-auto-flow: column;
+    align-content: center;
+    grid-column-gap: 20px;
+    
+    
+    form {
+        display: inline-block;
+        input {
+            border: none;
+            box-shadow: none;
+            background: transparent;
+            border-bottom: 1px black solid;
+            margin: auto 10px;
+            background-color: transparent;
+            outline: none;
+            &:-webkit-autofill,
+            &:-webkit-autofill:hover, 
+            &:-webkit-autofill:focus, 
+            &:-webkit-autofill:active {
+                    -webkit-box-shadow: 0 0 0 30px white inset !important;
+                }
+        }
+        button {
+            background: #1fd63f;
+        }
+        
+    }
+    
+    button {
+        // background: #42b8dd;
+        //#1fd63f green
+        background: #1f8dd6;
+        text-decoration: none;
+        color: white;
+        border: none;
+        padding: 0.5em 1em;
+        border-radius: 4px;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    }
+    
+    
+    
+}

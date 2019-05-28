@@ -40,9 +40,10 @@ class Search extends React.Component {
     submitInput(e) {
         e.preventDefault();
         const textQuery = (this.myText.value).toLowerCase();
-        
+        const url = "https://data.nasa.gov/resource/gh4g-9sfh.json?$where=lower(name)=" + "'" + textQuery + "'";
+        console.log(url);
         // fetch
-        fetch('https://data.nasa.gov/resource/gh4g-9sfh.json?$q=' + textQuery, {
+        fetch(url, {
             method: 'GET'
             })
             .then(res => res.json())
@@ -63,9 +64,9 @@ class Search extends React.Component {
 
     render() {
         return (
-            <div>
+            <div id='search'>
                 <form onSubmit={this.submitInput}>
-                    <input type="text" name="search" id="searchBar" ref={ref => this.myText = ref} onChange={this.handleInput}/>
+                    <input type="text" name="search" id="searchBar" ref={ref => this.myText = ref} onChange={this.handleInput} placeholder='Type location here'/>
                     <button>Submit</button>
                 </form>
                 <button onClick={this.initialLoad}>Home</button>
