@@ -7,7 +7,6 @@ const actions = require('actions');
 class Page extends React.Component {
     constructor(props) {
         super(props);
-        
         this.prevPage = this.prevPage.bind(this);
         this.nextPage = this.nextPage.bind(this);
     }
@@ -80,7 +79,7 @@ class Page extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return {page} = state;
+    return {list, page} = state;
 };
 
 const mapDispatchToProps = (dispatch) => {

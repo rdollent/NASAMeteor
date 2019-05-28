@@ -21,11 +21,17 @@ class Results extends React.Component {
             if(list && list.length) {
                 // get first 50 for first page
                 // read what results page it is
-                
-                const x = 50;
-                const max = (num * x) - 1;
-                const min = (num * x) - x;
+                let x, min, max;
                 const arr = [];
+                if(list.length === 1000) {
+                    x = 50;
+                    min = (num * x) - x;
+                    max = (num * x) - 1;
+                } else {
+                    min = 0;
+                    max = list.length - 1;
+                }
+                
                 for(let i = min; i <= max; i++) {
                     let itemNow = list[i];
                     // id, name, mass, recclass, recclat, reclong, year
