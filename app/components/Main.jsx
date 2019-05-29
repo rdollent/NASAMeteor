@@ -1,5 +1,6 @@
 const React = require('react');
 
+const Title = require('Title');
 const Search = require('Search');
 const Results = require('Results');
 const Page = require('Page');
@@ -14,6 +15,7 @@ class Main extends React.Component {
     render() {
         return (
             <div id='main'>
+                <Title />
                 <Search/>
                 <Results/>
                 <Page/>

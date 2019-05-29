@@ -68,14 +68,14 @@ class Results extends React.Component {
         
         return (
             <div>
-            <table>
-                <tr>
+            <table id='results'>
+                <tr id='results-header'>
                     <th>Name</th>
                     <th>Id</th>
                     <th>Mass</th>
                     <th>Class</th>
-                    <th>Latitude</th>
-                    <th>Longitude</th>
+                    <th style={{ textAlign: 'right' }}>Latitude</th>
+                    <th style={{ textAlign: 'right' }}>Longitude</th>
                     <th>Year</th>
                 </tr>
                 {renderList()}

@@ -18,8 +18,8 @@ class Item extends React.Component {
                     <td>{this.props.id}</td>
                     <td>{this.props.mass}</td>
                     <td>{this.props.class}</td>
-                    <td>{this.props.lat}</td>
-                    <td>{this.props.long}</td>
+                    <td style={{ textAlign: 'right' }}>{this.props.lat}</td>
+                    <td style={{ textAlign: 'right' }}>{this.props.long}</td>
                     <td>{year}</td>
                 </tr>
         )
