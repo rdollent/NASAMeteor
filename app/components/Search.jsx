@@ -15,6 +15,7 @@ class Search extends React.Component {
     
     handleInput(event) {
         this.props.submitNewInput((event.target.value).toLowerCase());
+        this.props.setError('');
     }
 
     initialLoad() {
@@ -22,11 +23,21 @@ class Search extends React.Component {
         fetch('https://data.nasa.gov/resource/gh4g-9sfh.json', {
             method: 'GET'
             })
-            .then(res => res.json())
+            .then(res => {
+                switch(res.status) {
+                    case 200:
+                        return res.json();
+                    case 400:
+                        this.props.setError('');
+                        break;
+                    default:
+                        return 'No entries!';
+                }
+                })
             .then((data) => {
                 this.props.setPage(1);
                 this.props.storeList(data);
-                
+                this.props.setError('');
             })
             .catch(err => {
                 throw new Error(err);
@@ -45,16 +56,27 @@ class Search extends React.Component {
         fetch(url, {
             method: 'GET'
             })
-            .then(res => res.json())
+            .then(res => {
+                switch(res.status) {
+                    case 200:
+                        return res.json();
+                    case 400:
+                        this.props.setError('');
+                        break;
+                    default:
+                        return 'No entries!';
+                }
+                })
             .then((data) => {
                 if(data && data.length) {
                     this.props.setPage(1);
                     this.props.storeList(data);
+                    
                 } else {
-                    this.props.setError('No entries!')
+                    let emptyData = [];
+                    this.props.setError('No entries!');
+                    this.props.storeList(emptyData);
                 }
-                
-                
             })
             .catch(err => {
                 throw new Error(err);

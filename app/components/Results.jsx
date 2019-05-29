@@ -2,7 +2,7 @@ const React = require('react');
 // need connect function to be able to connect to store from Provider
 const {connect} = require('react-redux');
 
-const actions = require('actions');
+// const actions = require('actions');
 
 const Item = require('Item');
 
@@ -17,8 +17,9 @@ class Results extends React.Component {
         const renderList = () => {
             const list = this.props.list;
             const num = this.props.page;
+            const err = this.props.err;
             
-            if(list && list.length) {
+            if(list && list.length && !err.length) {
                 // get first 50 for first page
                 // read what results page it is
                 
@@ -50,6 +51,15 @@ class Results extends React.Component {
                 }
                 return arr;
                 
+            } else if(err.length) {
+                return  (
+                <tr>
+                    <td colSpan="7" style={{ textAlign: 'center', padding: '20px' }}>
+                        <div>{err}</div>
+                    </td>
+                </tr>
+                
+                );
             }
             
             
@@ -76,7 +86,7 @@ class Results extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return {list, page} = state;
+    return {list, page, err} = state;
 };
 
 const mapDispatchToProps = {};
